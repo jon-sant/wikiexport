@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup Debug Session
-        uses: csexton/debugger-action@master
-      
       - name: Checkout repository
         uses: actions/checkout@v2
       
@@ -31,6 +28,9 @@ jobs:
       - name: Export Wiki Section to PDF
         run: |
           python export_wiki_section.py
+
+      - name: Setup Debug Session
+        uses: csexton/debugger-action@master
 
       - name: Commit PDF file
         run: |
