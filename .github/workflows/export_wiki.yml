@@ -21,9 +21,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install poetry
-          poetry install --no-interaction --all-extras
-          poetry add requests
+          python -m pip install requests
+          python -m pip install beautifulsoup4
           sudo apt install weasyprint
 
       - name: Export Wiki Section to PDF
