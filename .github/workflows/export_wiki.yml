@@ -1,0 +1,35 @@
+name: Export Wiki Section to PDF
+
+on:
+  push:
+    branches:
+      - main  # Change this to match your default branch
+
+jobs:
+  export_wiki_section:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          pip install requests markdown2pdf
+
+      - name: Export Wiki Section to PDF
+        run: |
+          python export_wiki_section.py
+
+      - name: Commit PDF file
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add section.pdf
+          git commit -m "Exported wiki section to PDF"
+          git push
