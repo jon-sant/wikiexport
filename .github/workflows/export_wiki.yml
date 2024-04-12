@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install requests markdown2pdf
+          apt install weasyprint
 
       - name: Export Wiki Section to PDF
         run: |
