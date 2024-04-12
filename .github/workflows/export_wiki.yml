@@ -23,7 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install requests
           python -m pip install beautifulsoup4
-          sudo apt install weasyprint
+          python -m pip install weasyprint
 
       - name: Export Wiki Section to PDF
         run: |
